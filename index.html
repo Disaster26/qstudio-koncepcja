@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow" data-podglad>
+<title>Projektowanie wnętrz Wrocław i online | Q-Studio Design - Marta Janulewicz</title>
+<meta name="description" content="Projekty wnętrz mieszkań, domów, biur i lokali usługowych z wizualizacją 3D. Pracownia Q-Studio Design, Wrocław i projekty online. Osobna zakładka: nieruchomości i home staging.">
+<meta name="theme-color" content="#232427">
+<link rel="preload" href="fonts/marcellus-rdzen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/figtree-rdzen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" imagesrcset="img/hero-960.webp 960w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w, img/hero-3840.webp 3840w" imagesizes="(max-width:760px) 1400px, 100vw" fetchpriority="high">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='160 165 775 730'%3E%3Cpath fill='%234F4F4F' d='M920 572L551 769 551 880 920 683ZM920 377L551 574 551 685 920 489ZM544 373L175 570 175 681 544 484ZM544 178L175 375 175 486 544 287Z'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"Marcellus";font-weight:400;font-display:swap;src:url(fonts/marcellus-rdzen.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0,U+00A9,U+00AB,U+00B0,U+00B7,U+00BB,U+00D3,U+00F3,U+2013,U+2018-2019,U+201C-201E,U+2022,U+2026}
+@font-face{font-family:"Marcellus";font-weight:400;font-display:swap;src:url(fonts/marcellus-pl.woff2) format("woff2");unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+@font-face{font-family:"Figtree";font-weight:400 700;font-display:swap;src:url(fonts/figtree-rdzen.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0,U+00A9,U+00AB,U+00B0,U+00B7,U+00BB,U+00D3,U+00F3,U+2013,U+2018-2019,U+201C-201E,U+2022,U+2026}
+@font-face{font-family:"Figtree";font-weight:400 700;font-display:swap;src:url(fonts/figtree-pl.woff2) format("woff2");unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+:root{
+  --grafit:#4F4F4F;      /* ciemna ściana logo */
+  --jasny:#DEDEDE;       /* jasna ściana logo */
+  --tusz:#1E1F22;
+  --noc:#232427;
+  --indygo:#2B3E9B;      /* granat z łazienki "indygo loft" */
+  --indygo-ciemne:#1F2E7A;
+  --szary:#F2F3F5;
+  --linia:#D9DADD;
+  --tekst:#3A3B3F;
+  --pad:clamp(20px,5vw,72px);
+  --max:1320px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--tekst);font:400 17px/1.65 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:"Marcellus",Georgia,serif;font-weight:400;color:var(--tusz);margin:0;line-height:1.12;letter-spacing:-.005em}
+h2{font-size:clamp(32px,4.2vw,56px)}
+h3{font-size:clamp(22px,2vw,27px)}
+p{margin:0 0 1em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* przycisk: prostokąt ze ściętym rogiem pod kątem rzutu izometrycznego z logo */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 30px 0 26px;background:var(--indygo);color:#fff;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.01em;border:0;cursor:pointer;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 15px),calc(100% - 26px) 100%,0 100%);transition:background .2s}
+.btn:hover{background:var(--indygo-ciemne)}
+.btn svg{width:18px;height:12px}
+.btn.jasny{background:#fff;color:var(--tusz)}
+.btn.jasny:hover{background:var(--jasny)}
+
+/* motyw: łamana linia rzutu (fragment wstęgi z logo) */
+.rzut{display:block;width:112px;height:30px;color:var(--indygo);margin:0 0 22px}
+.rzut path{fill:none;stroke:currentColor;stroke-width:2}
+
+/* nagłówek */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .25s,box-shadow .25s}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.marka{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.marka svg{width:40px;height:38px}
+.marka .lc path{fill:currentColor}
+.marka .lj path{fill:currentColor;opacity:.42}
+.marka span{font-family:"Marcellus",serif;font-size:21px;letter-spacing:.04em;line-height:1}
+.marka small{display:block;font-family:"Figtree",sans-serif;font-size:12px;letter-spacing:.06em;opacity:.8;margin-top:4px}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{color:#fff;text-decoration:none;font-size:15.5px;font-weight:500;padding:6px 0;border-bottom:1px solid transparent}
+.menu a:hover{border-color:currentColor}
+.menu .tel{font-weight:700;padding:9px 16px;border:1px solid rgba(255,255,255,.6)}
+.menu .tel:hover{background:#fff;color:var(--tusz)}
+.top.pasek{background:#fff;box-shadow:0 1px 0 var(--linia)}
+.top.pasek .marka,.top.pasek .menu a{color:var(--tusz)}
+.top.pasek .marka .lc path{fill:var(--grafit)}
+.top.pasek .marka .lj path{fill:#C9C9C9;opacity:1}
+.top.pasek .menu .tel{border-color:var(--tusz)}
+.top.pasek .menu .tel:hover{background:var(--tusz);color:#fff}
+.burger{display:none;background:none;border:0;color:#fff;width:48px;height:48px;padding:12px;cursor:pointer;margin-right:-12px}
+.burger span{display:block;height:2px;background:currentColor;margin:5px 0;transition:transform .25s,opacity .2s}
+.top.pasek .burger{color:var(--tusz)}
+
+/* pierwszy ekran */
+.hero{position:relative;height:100svh;min-height:620px;max-height:1200px;color:#fff;display:flex;align-items:flex-end;overflow:hidden;background:#2a2b2e}
+.hero picture,.hero img{position:absolute;inset:0;width:100%;height:100%}
+.hero img{object-fit:cover;object-position:56% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,19,22,.82) 0%,rgba(18,19,22,.55) 38%,rgba(18,19,22,0) 70%),linear-gradient(0deg,rgba(18,19,22,.55) 0%,rgba(18,19,22,0) 40%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,9vh,110px)}
+.hero h1{color:#fff;font-size:clamp(38px,5.4vw,82px);max-width:13.5em;max-width:min(13.5em,820px)}
+.hero h1 span{display:block}
+.hero .lead{font-size:clamp(17px,1.4vw,21px);max-width:34em;margin:22px 0 34px;color:rgba(255,255,255,.92)}
+.hero .akcje{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center}
+.hero .akcje .tel{color:#fff;text-decoration:none;font-weight:600;border-bottom:1px solid rgba(255,255,255,.55);padding:4px 0}
+.hero .rzut{color:#fff;opacity:.85}
+
+/* wstęp */
+.wstep{padding:clamp(76px,10vw,150px) 0}
+.wstep .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,96px);align-items:center}
+.wstep h2{max-width:11em}
+.wstep .tekst p{font-size:18px;max-width:34em}
+.wstep .podpis{margin-top:28px;font-weight:600;color:var(--tusz)}
+.wstep .podpis span{display:block;font-weight:400;color:#6b6c70;font-size:15px}
+.duo{position:relative;padding:0 0 64px 0}
+.duo .a{width:84%;margin-left:auto}
+.duo .b{position:absolute;left:0;bottom:0;width:52%;border:10px solid #fff}
+.duo::before{content:"";position:absolute;right:-18px;top:-18px;width:40%;height:50%;border-right:1px solid var(--indygo);border-top:1px solid var(--indygo)}
+
+/* realizacje - pas przesuwany */
+.projekty{background:var(--szary);padding:clamp(76px,9vw,130px) 0 clamp(64px,8vw,110px)}
+.glowa{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:38px}
+.glowa p{max-width:30em;margin:14px 0 0}
+.strzalki{display:flex;gap:10px}
+.strzalki button{width:52px;height:52px;border:1px solid var(--tusz);background:transparent;color:var(--tusz);cursor:pointer;display:grid;place-items:center}
+.strzalki button:hover{background:var(--tusz);color:#fff}
+.strzalki svg{width:20px;height:14px}
+.pas{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(260px,27vw,380px);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 18px;scroll-padding:0 var(--pad);scrollbar-width:thin;cursor:grab;
+  max-width:calc(var(--max) + (100vw - var(--max)) / 2);margin-left:auto}
+@media (max-width:1320px){.pas{max-width:none}}
+.pas.ciagniety{cursor:grabbing;scroll-snap-type:none}
+.karta{scroll-snap-align:start;background:#fff;border:0;padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column}
+.karta .foto{overflow:hidden;aspect-ratio:4/5;clip-path:polygon(0 0,100% 0,100% 100%,30px 100%,0 calc(100% - 17px))}
+.karta img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.karta:hover img{transform:scale(1.04)}
+.karta .opis{padding:18px 20px 22px}
+.karta .nazwa{display:block;font-family:"Marcellus",Georgia,serif;font-size:22px;line-height:1.15;color:var(--tusz)}
+.karta .typ{font-size:14.5px;color:#6b6c70;margin-top:6px;display:flex;justify-content:space-between;gap:12px}
+.karta .typ b{font-weight:600;color:var(--indygo)}
+
+/* jak pracuję */
+.proces{padding:clamp(80px,10vw,150px) 0}
+.proces .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,90px);align-items:start}
+.etapy{list-style:none;margin:30px 0 0;padding:0;border-top:1px solid var(--linia)}
+.etapy li{padding:22px 0;border-bottom:1px solid var(--linia);display:grid;grid-template-columns:150px 1fr;gap:20px}
+.etapy b{font-family:"Marcellus",serif;font-weight:400;font-size:21px;color:var(--tusz);line-height:1.25}
+.etapy p{margin:0}
+.moodboard{position:sticky;top:110px}
+.moodboard figure{margin:0;position:relative}
+.moodboard figure::after{content:"";position:absolute;right:-18px;bottom:-18px;width:55%;height:55%;border-right:1px solid var(--indygo);border-bottom:1px solid var(--indygo);z-index:-1}
+.moodboard figcaption{font-size:14.5px;color:#6b6c70;margin-top:30px}
+
+/* oferta */
+.oferta{padding:0 0 clamp(80px,10vw,150px)}
+.uslugi{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(28px,4vw,64px);margin-top:44px}
+.usluga{padding:28px 0 8px;border-top:2px solid var(--tusz)}
+.usluga h3{margin-bottom:12px}
+.usluga ul{margin:0;padding:0 0 0 18px}
+.usluga li{margin:4px 0}
+.usluga li::marker{color:var(--indygo)}
+.pakiety{margin-top:46px;padding:26px 30px;background:var(--szary);display:flex;flex-wrap:wrap;gap:12px 34px;align-items:center}
+.pakiety b{font-family:"Marcellus",serif;font-weight:400;font-size:20px;color:var(--tusz)}
+.pakiety span{color:#55565a}
+
+/* nieruchomości - jedna ciemna sekcja */
+.nieruch{background:var(--noc);color:#C9CACE;padding:clamp(80px,10vw,150px) 0}
+.nieruch .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,96px);align-items:center}
+.nieruch h2{color:#fff}
+.nieruch .rzut{color:#8FA0F0}
+.nieruch ul{list-style:none;margin:26px 0 34px;padding:0;border-top:1px solid #3a3b40}
+.nieruch li{padding:14px 0;border-bottom:1px solid #3a3b40;color:#E4E5E8}
+.nieruch .foto{position:relative}
+.nieruch .foto img{position:relative;z-index:1}
+.nieruch .foto::before{content:"";position:absolute;left:-18px;top:-18px;width:55%;height:55%;border-left:1px solid #6E7BC9;border-top:1px solid #6E7BC9}
+.nieruch .foto figcaption{font-size:14px;color:#9A9BA0;margin-top:14px}
+
+/* kontakt */
+.kontakt{padding:clamp(80px,10vw,150px) 0;background:#fff}
+.kontakt .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(36px,6vw,96px)}
+.dane{margin-top:30px}
+.dane a.duzy{display:inline-block;font-family:"Marcellus",serif;font-size:clamp(30px,3.2vw,44px);color:var(--tusz);text-decoration:none;line-height:1.1;margin-bottom:18px}
+.dane p{margin:0 0 8px}
+.dane a{color:var(--indygo);font-weight:600;text-decoration:none;word-break:break-word}
+form{background:var(--szary);padding:clamp(24px,3.4vw,44px)}
+label{display:block;font-size:14.5px;font-weight:600;color:var(--tusz);margin:0 0 6px}
+input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--tusz);background:#fff;border:1px solid #C8C9CD;border-radius:0;padding:13px 14px;margin:0 0 18px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--indygo);outline-offset:-1px;border-color:var(--indygo)}
+textarea{min-height:120px;resize:vertical}
+.pola{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.uwaga{font-size:13.5px;color:#6b6c70;margin:14px 0 0}
+
+/* stopka */
+.stopka{background:var(--szary);color:#55565a;padding:44px 0 34px;font-size:15px}
+.stopka .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px}
+.stopka .marka{color:var(--tusz)}
+.stopka .marka .lc path{fill:var(--grafit)}
+.stopka .marka .lj path{fill:#C9C9C9;opacity:1}
+.stopka a{text-decoration:none}
+.stopka a:hover{text-decoration:underline}
+.stopka .dol{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--linia);padding-top:22px;margin-top:8px;font-size:14px}
+.stopka h4{margin:0 0 10px;font-size:14px;color:var(--tusz);font-weight:700}
+.stopka p{margin:0 0 6px}
+
+/* galeria pełnoekranowa */
+.lb{position:fixed;inset:0;z-index:100;background:#111214;display:none;flex-direction:column}
+.lb.otw{display:flex}
+.lb-gora{display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);color:#fff;gap:16px}
+.lb-gora h3{color:#fff;font-size:22px}
+.lb-gora small{color:#A9AAAE;font-size:14px;display:block;margin-top:2px}
+.lb-zamknij{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:46px;height:46px;cursor:pointer;font-size:24px;line-height:1;flex:none}
+.lb-tor{flex:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.lb-tor::-webkit-scrollbar{display:none}
+.lb-tor figure{flex:0 0 100%;margin:0;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;padding:0 var(--pad) 10px}
+.lb-tor img{max-height:calc(100svh - 150px);width:auto;max-width:100%;object-fit:contain}
+.lb-dol{display:flex;justify-content:center;align-items:center;gap:18px;padding:10px 0 18px;color:#C9CACE;font-size:15px}
+.lb-dol button{width:48px;height:48px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;cursor:pointer;display:grid;place-items:center}
+.lb-dol svg{width:20px;height:14px}
+
+@media (max-width:1080px){
+  .uslugi{grid-template-columns:1fr 1fr}
+  .proces .wrap{grid-template-columns:1fr}
+  .moodboard{position:static;max-width:760px}
+}
+@media (max-width:900px){
+  .menu{position:fixed;inset:70px 0 auto 0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) 22px;box-shadow:0 12px 30px rgba(0,0,0,.12);display:none}
+  .menu.otw{display:flex}
+  .menu a,.top .menu a{color:var(--tusz);font-size:18px;padding:14px 0;border-bottom:1px solid var(--linia)}
+  .menu .tel,.top .menu .tel{margin-top:14px;text-align:center;border:1px solid var(--tusz)}
+  .burger{display:block}
+  .top.otw{background:#fff}
+  .top.otw .marka,.top.otw .burger{color:var(--tusz)}
+  .top.otw .marka .lc path{fill:var(--grafit)}
+  .top.otw .marka .lj path{fill:#C9C9C9;opacity:1}
+  .top.otw .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .top.otw .burger span:nth-child(2){opacity:0}
+  .top.otw .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .top .wrap{height:70px}
+  .wstep .wrap,.nieruch .wrap,.kontakt .wrap{grid-template-columns:1fr}
+  .nieruch .foto{order:-1}
+  .stopka .wrap{grid-template-columns:1fr 1fr}
+  .stopka .wrap>div:first-child{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .hero{height:min(100svh,780px);min-height:560px}
+  .hero img{object-position:62% 50%}
+  .hero::after{background:linear-gradient(0deg,rgba(18,19,22,.9) 0%,rgba(18,19,22,.62) 48%,rgba(18,19,22,.15) 78%,rgba(18,19,22,.35) 100%)}
+  .hero .wrap{padding-bottom:34px}
+  .hero h1{font-size:clamp(34px,9.6vw,44px)}
+  .hero h1 span{display:inline}
+  .moodboard figure::after{right:-10px;bottom:-10px}
+  .duo::before{right:-8px;top:-10px}
+  .moodboard{padding-right:10px}
+  .stopka .wrap{grid-template-columns:1fr}
+  .stopka a{word-break:break-word}
+  .hero .lead{font-size:16.5px;margin:16px 0 24px}
+  .hero .rzut{width:84px;height:22px;margin-bottom:16px}
+  .glowa{flex-direction:column;align-items:flex-start}
+  .strzalki{display:none}
+  .pas{grid-auto-columns:76vw;gap:14px}
+  .uslugi{grid-template-columns:1fr}
+  .etapy li{grid-template-columns:1fr;gap:6px}
+  .pola{grid-template-columns:1fr}
+  .duo{padding-bottom:44px}
+  .duo .b{border-width:6px}
+  body{font-size:16.5px}
+}
+@media (max-height:700px) and (max-width:760px){
+  .hero h1{font-size:clamp(31px,8.6vw,38px)}
+  .hero .lead{margin:12px 0 24px}
+  .hero .rzut{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="marka" href="#" aria-label="Q-Studio Design, strona główna"><svg viewBox="160 165 775 730" aria-hidden="true"><g class="lj"><path d="M179 681L548 881 549 772 282 629Z"/><path d="M915 566L841 532 745 588 820 624Z"/><path d="M361 583L547 684 549 580 457 531Z"/><path d="M350 468L277 432 177 490 251 526Z"/><path d="M547 372L545 481 636 526 735 474Z"/><path d="M547 177L545 286 818 429 917 376Z"/></g><g class="lc"><path d="M920 572L551 769 551 880 920 683Z"/><path d="M920 377L551 574 551 685 920 489Z"/><path d="M544 373L175 570 175 681 544 484Z"/><path d="M544 178L175 375 175 486 544 287Z"/></g></svg><span>Q-Studio Design<small>projektowanie wnętrz</small></span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Menu główne">
+      <a href="#projekty">Projekty</a>
+      <a href="#jak-pracuje">Jak pracuję</a>
+      <a href="#oferta">Oferta</a>
+      <a href="#nieruchomosci">Nieruchomości</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="tel" href="tel:+48693144566">693 144 566</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <picture>
+    <img src="img/hero-1600.webp" srcset="img/hero-960.webp 960w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w, img/hero-3840.webp 3840w" sizes="(max-width:760px) 1400px, 100vw" width="3840" height="2160" alt="Projekt nowoczesnej kuchni z wyspą i przeszkleniem na ogród, wizualizacja Q-Studio Design" fetchpriority="high">
+  </picture>
+  <div class="wrap">
+    <svg class="rzut" viewBox="0 0 112 30" aria-hidden="true"><path d="M0 25H40L60 13.5V24.5L80 13H112"/></svg>
+    <h1><span>Projektowanie wnętrz</span> we Wrocławiu i online</h1>
+    <p class="lead">Mieszkania, domy, biura i lokale usługowe. Od pierwszego rzutu, przez wizualizację 3D, po rysunki dla wykonawców.</p>
+    <div class="akcje">
+      <a class="btn" href="#projekty">Zobacz projekty <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M11 1l5 5-5 5M16 6H1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <a class="tel" href="tel:+48693144566">tel. 693 144 566</a>
+    </div>
+  </div>
+</section>
+
+<section class="wstep">
+  <div class="wrap">
+    <div class="tekst">
+      <svg class="rzut" viewBox="0 0 112 30" aria-hidden="true"><path d="M0 25H40L60 13.5V24.5L80 13H112"/></svg>
+      <h2>Wnętrze potrzebuje duszy</h2>
+      <p style="margin-top:26px">Projekt zaczyna się od rozmowy o tym, jak żyjesz albo pracujesz. Potem szukamy układu, który ułatwia codzienność, i dobieramy światło, kolory oraz materiały tak, żeby wnętrze było praktyczne i ciepłe w odbiorze.</p>
+      <p>Każdą koncepcję możesz zobaczyć na fotorealistycznej wizualizacji 3D, zanim zapadnie decyzja o zakupach i remoncie. To oszczędza czas i pieniądze.</p>
+      <p class="podpis">Marta Janulewicz<span>projektantka wnętrz, Q-Studio Design</span></p>
+    </div>
+    <div class="duo">
+      <img class="a" src="img/apartament-1-900.webp" srcset="img/apartament-1-900.webp 900w, img/apartament-1-1600.webp 1600w" sizes="(max-width:900px) 84vw, 520px" width="1600" height="900" loading="lazy" alt="Salon w apartamencie 50 m2 we Wrocławiu, projekt w stylu loft">
+      <img class="b" src="img/lazienka-indygo-0-900.webp" sizes="(max-width:900px) 52vw, 330px" width="900" height="590" loading="lazy" alt="Łazienka w granacie indygo z drewnianą komodą pod umywalką">
+    </div>
+  </div>
+</section>
+
+<section class="projekty" id="projekty">
+  <div class="wrap glowa">
+    <div>
+      <svg class="rzut" viewBox="0 0 112 30" aria-hidden="true"><path d="M0 25H40L60 13.5V24.5L80 13H112"/></svg>
+      <h2>Wybrane projekty</h2>
+      <p>Wizualizacje z prawdziwych projektów pracowni. Kliknij projekt, żeby obejrzeć wszystkie ujęcia.</p>
+    </div>
+    <div class="strzalki">
+      <button type="button" data-pas="-1" aria-label="Poprzednie projekty"><svg viewBox="0 0 20 14"><path d="M8 1L2 7l6 6M2 7h17" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+      <button type="button" data-pas="1" aria-label="Następne projekty"><svg viewBox="0 0 20 14"><path d="M12 1l6 6-6 6M18 7H1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    </div>
+  </div>
+  <div class="pas" id="pas">
+    <button class="karta" type="button" data-i="0"><span class="foto"><img src="img/apartament-okl-640.webp" srcset="img/apartament-okl-640.webp 640w, img/apartament-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Apartament 50 m², Wrocław"></span><span class="opis"><span class="nazwa">Apartament 50 m², Wrocław</span><span class="typ"><span>mieszkanie, styl loft</span><b>9 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="1"><span class="foto"><img src="img/dom-skandynawski-okl-640.webp" srcset="img/dom-skandynawski-okl-640.webp 640w, img/dom-skandynawski-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Dom w stylu skandynawskim"></span><span class="opis"><span class="nazwa">Dom w stylu skandynawskim</span><span class="typ"><span>dom jednorodzinny</span><b>8 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="2"><span class="foto"><img src="img/kuchnia-okl-640.webp" srcset="img/kuchnia-okl-640.webp 640w, img/kuchnia-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Nowoczesna kuchnia z wyspą"></span><span class="opis"><span class="nazwa">Nowoczesna kuchnia z wyspą</span><span class="typ"><span>dom jednorodzinny</span><b>5 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="3"><span class="foto"><img src="img/lazienka-indygo-okl-640.webp" srcset="img/lazienka-indygo-okl-640.webp 640w, img/lazienka-indygo-okl-800.webp 800w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Łazienka indygo"></span><span class="opis"><span class="nazwa">Łazienka indygo</span><span class="typ"><span>łazienka w biurze, Wrocław</span><b>6 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="4"><span class="foto"><img src="img/dom-z-ogrodem-okl-640.webp" srcset="img/dom-z-ogrodem-okl-640.webp 640w, img/dom-z-ogrodem-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Salon z widokiem na ogród"></span><span class="opis"><span class="nazwa">Salon z widokiem na ogród</span><span class="typ"><span>dom jednorodzinny</span><b>6 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="5"><span class="foto"><img src="img/poddasze-okl-640.webp" srcset="img/poddasze-okl-640.webp 640w, img/poddasze-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Poddasze z czerwoną sofą"></span><span class="opis"><span class="nazwa">Poddasze z czerwoną sofą</span><span class="typ"><span>mieszkanie na poddaszu</span><b>6 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="6"><span class="foto"><img src="img/mieszkanie-32-okl-640.webp" srcset="img/mieszkanie-32-okl-640.webp 640w, img/mieszkanie-32-okl-800.webp 800w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Mieszkanie na wynajem 32 m²"></span><span class="opis"><span class="nazwa">Mieszkanie na wynajem 32 m²</span><span class="typ"><span>mieszkanie pod najem</span><b>6 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="7"><span class="foto"><img src="img/biuro-okl-640.webp" srcset="img/biuro-okl-640.webp 640w, img/biuro-okl-960.webp 960w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Biuro w lokalu, Wrocław"></span><span class="opis"><span class="nazwa">Biuro w lokalu, Wrocław</span><span class="typ"><span>lokal usługowy</span><b>5 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="8"><span class="foto"><img src="img/showroom-loft-okl-640.webp" srcset="img/showroom-loft-okl-640.webp 640w, img/showroom-loft-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Showroom w hali"></span><span class="opis"><span class="nazwa">Showroom w hali</span><span class="typ"><span>koncepcja, styl loft</span><b>6 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="9"><span class="foto"><img src="img/salon-meblowy-okl-640.webp" srcset="img/salon-meblowy-okl-640.webp 640w, img/salon-meblowy-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Salon meblowy"></span><span class="opis"><span class="nazwa">Salon meblowy</span><span class="typ"><span>ekspozycja mebli</span><b>6 ujęć</b></span></span></button>
+    <button class="karta" type="button" data-i="10"><span class="foto"><img src="img/restauracja-okl-640.webp" srcset="img/restauracja-okl-640.webp 640w, img/restauracja-okl-864.webp 864w" sizes="(max-width:760px) 76vw, 380px" width="640" height="800" loading="lazy" alt="Restauracja 80 m²"></span><span class="opis"><span class="nazwa">Restauracja 80 m²</span><span class="typ"><span>koncepcja lokalu</span><b>6 ujęć</b></span></span></button>
+  </div>
+</section>
+
+<section class="proces" id="jak-pracuje">
+  <div class="wrap">
+    <div>
+      <svg class="rzut" viewBox="0 0 112 30" aria-hidden="true"><path d="M0 25H40L60 13.5V24.5L80 13H112"/></svg>
+      <h2>Jak powstaje projekt</h2>
+      <ol class="etapy">
+        <li><b>Koncepcja</b><p>Rozmowa o potrzebach, stylu i budżecie. Na tej podstawie przygotowuję propozycje układu funkcjonalnego.</p></li>
+        <li><b>Funkcjonalność</b><p>Rzuty i rysunki do wybranej koncepcji: wyburzenia, przesunięcia ścianek, instalacje elektryczne i sanitarne.</p></li>
+        <li><b>Wizualizacja</b><p>Moodboard z oświetleniem, meblami i kolorystyką, a potem fotorealistyczne wizualizacje 3D.</p></li>
+        <li><b>Dokumentacja</b><p>Rysunki dla wykonawców, zestawienie gniazd i oświetlenia, meble na wymiar, widoki ścian i lista materiałów.</p></li>
+      </ol>
+    </div>
+    <div class="moodboard">
+      <figure>
+        <img src="img/moodboard-960.webp" srcset="img/moodboard-960.webp 960w, img/moodboard-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 680px" width="1600" height="900" loading="lazy" alt="Plansza pracowni: spotkanie i analiza, inwentaryzacja, koncepcja, tablica inspiracji, wizualizacja, projekt wykonawczy">
+      </figure>
+      <p style="font-size:14.5px;color:#6b6c70;margin-top:30px">Plansza z dotychczasowej strony pracowni. Projekty prowadzę stacjonarnie we Wrocławiu i okolicach albo w całości online.</p>
+    </div>
+  </div>
+</section>
+
+<section class="oferta" id="oferta">
+  <div class="wrap">
+    <svg class="rzut" viewBox="0 0 112 30" aria-hidden="true"><path d="M0 25H40L60 13.5V24.5L80 13H112"/></svg>
+    <h2>Oferta pracowni</h2>
+    <div class="uslugi">
+      <div class="usluga"><h3>Projekt wnętrza</h3><ul><li>inwentaryzacja i koncepcja funkcjonalna</li><li>rzuty 2D i projekt 3D</li><li>rysunki techniczne: elektryka, oświetlenie, wod.-kan.</li><li>zestawienie materiałów i mebli</li></ul></div>
+      <div class="usluga"><h3>Wizualizacja 3D</h3><ul><li>realistyczne ujęcia przed decyzją o zakupach</li><li>to samo wnętrze w kilku stylach</li><li>fotowizualizacje do prezentacji</li></ul></div>
+      <div class="usluga"><h3>Aranżacja</h3><ul><li>aranżacja dowolnego pomieszczenia</li><li>moodboard z kolorystyką, meblami i detalami</li><li>wspólna wizyta w sklepie</li></ul></div>
+      <div class="usluga"><h3>Projekt online</h3><ul><li>cały proces przez internet</li><li>konsultacje na dowolnym etapie</li><li>koncepcja zmian jednego pomieszczenia</li></ul></div>
+      <div class="usluga"><h3>Home staging</h3><ul><li>przygotowanie mieszkania do sprzedaży lub najmu</li><li>dobór dodatków i poprawa funkcjonalności</li><li>niewielki budżet, szybki efekt</li></ul></div>
+      <div class="usluga"><h3>Wirtualny spacer 360</h3><ul><li>sesja wnętrz i otoczenia</li><li>spacer 360 lub wizualizacja do ogłoszenia</li><li>zdjęcia do portfolio sprzedaży</li></ul></div>
+    </div>
+    <div class="pakiety"><b>Pakiety projektowe</b><span>Rzut koncepcyjny</span><span>Basic</span><span>Classic</span><span>Premium z nadzorem autorskim</span></div>
+  </div>
+</section>
+
+<section class="nieruch" id="nieruchomosci">
+  <div class="wrap">
+    <div>
+      <svg class="rzut" viewBox="0 0 112 30" aria-hidden="true"><path d="M0 25H40L60 13.5V24.5L80 13H112"/></svg>
+      <h2>Nieruchomości</h2>
+      <p style="margin-top:24px">Osobna zakładka dla tych, którzy kupują, sprzedają albo wynajmują. Projektowanie i rynek nieruchomości łączę od lat: wiem, jak wnętrze wpływa na decyzję kupującego i najemcy.</p>
+      <ul>
+        <li>przygotowanie mieszkania do sprzedaży lub wynajmu</li>
+        <li>projekt mieszkania pod wynajem, także małego metrażu</li>
+        <li>sesja zdjęciowa, wizualizacja 3D i spacer 360</li>
+        <li>opisy do ogłoszeń i wsparcie w sprzedaży</li>
+      </ul>
+      <a class="btn jasny" href="#kontakt">Zapytaj o nieruchomość <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M11 1l5 5-5 5M16 6H1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+    <figure class="foto" style="margin:0">
+      <img src="img/mieszkanie-32-0-900.webp" srcset="img/mieszkanie-32-0-900.webp 900w, img/mieszkanie-32-0-1600.webp 1600w" sizes="(max-width:900px) 92vw, 600px" width="1600" height="1067" loading="lazy" alt="Mieszkanie na wynajem 32 m2: zielona ściana, przeszklenie w czarnej ramie, aneks kuchenny">
+      <figcaption>Projekt mieszkania na wynajem, 32 m²</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <div>
+      <svg class="rzut" viewBox="0 0 112 30" aria-hidden="true"><path d="M0 25H40L60 13.5V24.5L80 13H112"/></svg>
+      <h2>Porozmawiajmy o Twoim wnętrzu</h2>
+      <div class="dane">
+        <a class="duzy" href="tel:+48693144566">693 144 566</a>
+        <p><a href="mailto:biuro.qstudiodesign@gmail.com">biuro.qstudiodesign@gmail.com</a></p>
+        <p><a href="mailto:marta.janulewicz@gmail.com">marta.janulewicz@gmail.com</a></p>
+        <p style="margin-top:22px">Wrocław i okolice, projekty online z całej Polski.</p>
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault();this.querySelector('.uwaga').textContent='To formularz pokazowy. Na docelowej stronie wiadomość trafi prosto do skrzynki pracowni.'">
+      <div class="pola">
+        <div><label for="f-imie">Imię</label><input id="f-imie" name="imie" autocomplete="name"></div>
+        <div><label for="f-tel">Telefon lub e-mail</label><input id="f-tel" name="kontakt"></div>
+      </div>
+      <label for="f-rodzaj">Czego dotyczy projekt</label>
+      <select id="f-rodzaj" name="rodzaj"><option>Mieszkanie</option><option>Dom</option><option>Biuro lub lokal usługowy</option><option>Nieruchomość na sprzedaż lub wynajem</option><option>Inne</option></select>
+      <label for="f-wiad">Kilka słów o wnętrzu</label>
+      <textarea id="f-wiad" name="wiadomosc" placeholder="Metraż, miasto, co chcesz zmienić"></textarea>
+      <button class="btn" type="submit">Wyślij zapytanie <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M11 1l5 5-5 5M16 6H1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+      <p class="uwaga">Formularz pokazowy, w podglądzie nic nie wysyła.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="stopka">
+  <div class="wrap">
+    <div>
+      <a class="marka" href="#"><svg viewBox="160 165 775 730" aria-hidden="true"><g class="lj"><path d="M179 681L548 881 549 772 282 629Z"/><path d="M915 566L841 532 745 588 820 624Z"/><path d="M361 583L547 684 549 580 457 531Z"/><path d="M350 468L277 432 177 490 251 526Z"/><path d="M547 372L545 481 636 526 735 474Z"/><path d="M547 177L545 286 818 429 917 376Z"/></g><g class="lc"><path d="M920 572L551 769 551 880 920 683Z"/><path d="M920 377L551 574 551 685 920 489Z"/><path d="M544 373L175 570 175 681 544 484Z"/><path d="M544 178L175 375 175 486 544 287Z"/></g></svg><span>Q-Studio Design<small>projektowanie wnętrz</small></span></a>
+      <p style="margin-top:16px">Q-STUDIO &amp; DESIGN Sp. z o.o.<br>Wrocław, projekty także online</p>
+    </div>
+    <div>
+      <h4>Strona</h4>
+      <p><a href="#projekty">Projekty</a></p>
+      <p><a href="#jak-pracuje">Jak pracuję</a></p>
+      <p><a href="#oferta">Oferta</a></p>
+      <p><a href="#nieruchomosci">Nieruchomości</a></p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <p><a href="tel:+48693144566">693 144 566</a></p>
+      <p><a href="mailto:biuro.qstudiodesign@gmail.com">biuro.qstudiodesign@gmail.com</a></p>
+    </div>
+    <div class="dol">
+      <span>© 2026 Q-STUDIO &amp; DESIGN Sp. z o.o. · Polityka prywatności</span>
+      <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=q-studio.design&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-tytul">
+  <div class="lb-gora"><div><h3 id="lb-tytul"></h3><small id="lb-typ"></small></div><button class="lb-zamknij" type="button" aria-label="Zamknij">&times;</button></div>
+  <div class="lb-tor" id="lb-tor"></div>
+  <div class="lb-dol"><button type="button" data-lb="-1" aria-label="Poprzednie zdjęcie"><svg viewBox="0 0 20 14"><path d="M8 1L2 7l6 6M2 7h17" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button><span id="lb-licznik"></span><button type="button" data-lb="1" aria-label="Następne zdjęcie"><svg viewBox="0 0 20 14"><path d="M12 1l6 6-6 6M18 7H1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+</div>
+
+<script>
+const PROJEKTY=[{"t": "Apartament 50 m², Wrocław", "r": "mieszkanie, styl loft", "z": [["apartament-0-1600.webp", 1600, 900], ["apartament-1-1600.webp", 1600, 900], ["apartament-2-1600.webp", 1600, 900], ["apartament-3-1600.webp", 1600, 900], ["apartament-4-1600.webp", 1600, 900], ["apartament-5-1600.webp", 1600, 900], ["apartament-6-1600.webp", 1600, 900], ["apartament-7-1600.webp", 1600, 900], ["apartament-8-1600.webp", 1600, 900]]}, {"t": "Dom w stylu skandynawskim", "r": "dom jednorodzinny", "z": [["dom-skandynawski-0-1600.webp", 1600, 900], ["dom-skandynawski-1-1600.webp", 1600, 900], ["dom-skandynawski-2-1600.webp", 1600, 900], ["dom-skandynawski-3-1600.webp", 1600, 900], ["dom-skandynawski-4-1600.webp", 1600, 900], ["dom-skandynawski-5-1600.webp", 1600, 900], ["dom-skandynawski-6-1600.webp", 1600, 900], ["dom-skandynawski-7-1600.webp", 1600, 900]]}, {"t": "Nowoczesna kuchnia z wyspą", "r": "dom jednorodzinny", "z": [["kuchnia-0-1600.webp", 1600, 900], ["kuchnia-1-1600.webp", 1600, 900], ["kuchnia-2-1600.webp", 1600, 900], ["kuchnia-3-1600.webp", 1600, 900], ["kuchnia-4-1600.webp", 1600, 900]]}, {"t": "Łazienka indygo", "r": "łazienka w biurze, Wrocław", "z": [["lazienka-indygo-0-1525.webp", 1525, 1000], ["lazienka-indygo-1-1600.webp", 1600, 1067], ["lazienka-indygo-2-1000.webp", 1000, 1333], ["lazienka-indygo-3-1297.webp", 1297, 1920], ["lazienka-indygo-4-1000.webp", 1000, 1333], ["lazienka-indygo-5-1280.webp", 1280, 1920]]}, {"t": "Salon z widokiem na ogród", "r": "dom jednorodzinny", "z": [["dom-z-ogrodem-0-1600.webp", 1600, 900], ["dom-z-ogrodem-1-1600.webp", 1600, 900], ["dom-z-ogrodem-2-1600.webp", 1600, 900], ["dom-z-ogrodem-3-1600.webp", 1600, 900], ["dom-z-ogrodem-4-1600.webp", 1600, 900], ["dom-z-ogrodem-5-1600.webp", 1600, 900]]}, {"t": "Poddasze z czerwoną sofą", "r": "mieszkanie na poddaszu", "z": [["poddasze-0-1600.webp", 1600, 900], ["poddasze-1-1600.webp", 1600, 900], ["poddasze-2-1600.webp", 1600, 900], ["poddasze-3-1600.webp", 1600, 900], ["poddasze-4-1500.webp", 1500, 844], ["poddasze-5-1600.webp", 1600, 900]]}, {"t": "Mieszkanie na wynajem 32 m²", "r": "mieszkanie pod najem", "z": [["mieszkanie-32-0-1600.webp", 1600, 959], ["mieszkanie-32-1-1500.webp", 1500, 1000], ["mieszkanie-32-2-1500.webp", 1500, 1000], ["mieszkanie-32-3-1500.webp", 1500, 1000], ["mieszkanie-32-4-1500.webp", 1500, 1000], ["mieszkanie-32-5-1500.webp", 1500, 1000]]}, {"t": "Biuro w lokalu, Wrocław", "r": "lokal usługowy", "z": [["biuro-0-1600.webp", 1600, 1158], ["biuro-1-1600.webp", 1600, 1067], ["biuro-2-1600.webp", 1600, 1849], ["biuro-3-1000.webp", 1000, 1333], ["biuro-4-1600.webp", 1600, 1067]]}, {"t": "Showroom w hali", "r": "koncepcja, styl loft", "z": [["showroom-loft-0-1600.webp", 1600, 900], ["showroom-loft-1-1600.webp", 1600, 900], ["showroom-loft-2-1600.webp", 1600, 900], ["showroom-loft-3-1600.webp", 1600, 900], ["showroom-loft-4-1600.webp", 1600, 900], ["showroom-loft-5-1600.webp", 1600, 900]]}, {"t": "Salon meblowy", "r": "ekspozycja mebli", "z": [["salon-meblowy-0-1600.webp", 1600, 900], ["salon-meblowy-1-1600.webp", 1600, 900], ["salon-meblowy-2-1600.webp", 1600, 900], ["salon-meblowy-3-1600.webp", 1600, 900], ["salon-meblowy-4-1600.webp", 1600, 900], ["salon-meblowy-5-1600.webp", 1600, 900]]}, {"t": "Restauracja 80 m²", "r": "koncepcja lokalu", "z": [["restauracja-0-1600.webp", 1600, 900], ["restauracja-1-1600.webp", 1600, 900], ["restauracja-2-1600.webp", 1600, 900], ["restauracja-3-1600.webp", 1600, 900], ["restauracja-4-1600.webp", 1600, 900], ["restauracja-5-1600.webp", 1600, 900]]}];
+(function(){
+  const top=document.getElementById('top'),burger=top.querySelector('.burger'),menu=document.getElementById('menu');
+  const pas=()=>top.classList.toggle('pasek',scrollY>40);pas();addEventListener('scroll',pas,{passive:true});
+  burger.addEventListener('click',()=>{const o=menu.classList.toggle('otw');top.classList.toggle('otw',o);burger.setAttribute('aria-expanded',o)});
+  menu.addEventListener('click',e=>{if(e.target.tagName==='A'){menu.classList.remove('otw');top.classList.remove('otw');burger.setAttribute('aria-expanded',false)}});
+  // pas projektów: strzałki + przeciąganie myszą
+  const p=document.getElementById('pas');
+  document.querySelectorAll('[data-pas]').forEach(b=>b.addEventListener('click',()=>p.scrollBy({left:(+b.dataset.pas)*p.querySelector('.karta').offsetWidth*1.05,behavior:'smooth'})));
+  let x0=null,s0=0,ruch=false;
+  p.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;x0=e.clientX;s0=p.scrollLeft;ruch=false});
+  addEventListener('pointermove',e=>{if(x0===null)return;const d=e.clientX-x0;if(Math.abs(d)>5){ruch=true;p.classList.add('ciagniety')}p.scrollLeft=s0-d});
+  addEventListener('pointerup',()=>{if(x0===null)return;x0=null;p.classList.remove('ciagniety')});
+  // galeria
+  const lb=document.getElementById('lb'),tor=document.getElementById('lb-tor'),lic=document.getElementById('lb-licznik');
+  let n=0,ostatni=null;
+  function otworz(i){const pr=PROJEKTY[i];ostatni=document.activeElement;
+    document.getElementById('lb-tytul').textContent=pr.t;document.getElementById('lb-typ').textContent=pr.r;
+    tor.innerHTML=pr.z.map((z,k)=>`<figure><img src="img/${z[0]}" width="${z[1]}" height="${z[2]}" alt="${pr.t}, ujęcie ${k+1}" loading="${k<2?'eager':'lazy'}"></figure>`).join('');
+    n=pr.z.length;lb.classList.add('otw');document.body.style.overflow='hidden';tor.scrollLeft=0;licz();lb.querySelector('.lb-zamknij').focus()}
+  function zamknij(){lb.classList.remove('otw');document.body.style.overflow='';if(ostatni)ostatni.focus()}
+  function idx(){return Math.round(tor.scrollLeft/tor.clientWidth)}
+  function licz(){lic.textContent=(idx()+1)+' / '+n}
+  tor.addEventListener('scroll',licz,{passive:true});
+  document.querySelectorAll('.karta').forEach(k=>k.addEventListener('click',e=>{if(ruch){e.preventDefault();return}otworz(+k.dataset.i)}));
+  lb.querySelector('.lb-zamknij').addEventListener('click',zamknij);
+  lb.querySelectorAll('[data-lb]').forEach(b=>b.addEventListener('click',()=>tor.scrollTo({left:(idx()+ +b.dataset.lb)*tor.clientWidth,behavior:'smooth'})));
+  addEventListener('keydown',e=>{if(!lb.classList.contains('otw'))return;if(e.key==='Escape')zamknij();if(e.key==='ArrowRight')tor.scrollBy({left:tor.clientWidth,behavior:'smooth'});if(e.key==='ArrowLeft')tor.scrollBy({left:-tor.clientWidth,behavior:'smooth'})});
+})();
+</script>
+</body>
+</html>
